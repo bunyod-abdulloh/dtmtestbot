@@ -52,14 +52,6 @@ class Database:
             );
             """,
             """
-            CREATE TABLE IF NOT EXISTS count_users (
-                group_id BIGINT NOT NULL REFERENCES groups(id) ON DELETE CASCADE,                
-                inviter_id BIGINT NOT NULL,
-                quantity INTEGER DEFAULT 0,
-                PRIMARY KEY (group_id, inviter_id)
-            );
-            """,
-            """
             CREATE TABLE IF NOT EXISTS send_status (                
                 send_post BOOLEAN DEFAULT FALSE
             );
