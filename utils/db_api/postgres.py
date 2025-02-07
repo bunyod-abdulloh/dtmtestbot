@@ -43,15 +43,6 @@ class Database:
             );
             """,
             """
-            CREATE TABLE IF NOT EXISTS groups (                
-                id SERIAL PRIMARY KEY,
-                group_ BIGINT NOT NULL UNIQUE,
-                user_id BIGINT NOT NULL,
-                users INTEGER DEFAULT 0,
-                created_at DATE DEFAULT CURRENT_DATE                
-            );
-            """,
-            """
             CREATE TABLE IF NOT EXISTS send_status (                
                 send_post BOOLEAN DEFAULT FALSE
             );
