@@ -6,10 +6,6 @@ async def set_default_commands(dp):
         [
             types.BotCommand("start", "Botni ishga tushurish"),
             types.BotCommand("admin", "Admin panel"),
-            types.BotCommand("ro", "Foydalanuvchini Read Only (RO) rejimga o'tkazish"),
-            types.BotCommand("unro", "RO rejimdan chiqarish"),
-            types.BotCommand("ban", "Ban"),
-            types.BotCommand("unban", "Bandan chiqarish"),
             types.BotCommand("/bekor", "Jarayonni bekor qilish")
         ]
     )
