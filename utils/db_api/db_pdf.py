@@ -10,7 +10,7 @@ class PdfBase:
         return await self.db.execute(sql, test_name, file_id, fetchrow=True)
 
     async def select_files_by_name(self, test_name):
-        sql = "SELECT file_id FROM pdfbase WHERE test_name = $1"
+        sql = "SELECT id, file_id FROM pdfbase WHERE test_name = $1"
         return await self.db.execute(sql, test_name, fetch=True)
 
     async def get_all_files(self):
