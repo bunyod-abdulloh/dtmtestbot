@@ -12,7 +12,7 @@ async def send_doc_to_user(message: types.Message, test_name: str):
     for index, test in enumerate(all_tests):
         if index == 29:
             await asyncio.sleep(5)
-        await message.answer_document(document=test['file_id'])
+        await message.answer_document(document=test['file_id'], protect_content=True)
 
 
 @dp.message_handler(F.text == "📚 Kimyo DTM Testlar")

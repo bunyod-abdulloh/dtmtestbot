@@ -1,5 +1,3 @@
-import asyncio
-
 from aiogram import types
 from aiogram.dispatcher import FSMContext
 from magic_filter import F
@@ -10,7 +8,6 @@ from states.admin import AdminStates
 
 
 async def add_document_func(message: types.Message, test_name: str):
-    await asyncio.sleep(1)
     await pdb.add_file(test_name, message.document.file_id)
     await message.reply(text="Fayl qabul qilindi!")
 
