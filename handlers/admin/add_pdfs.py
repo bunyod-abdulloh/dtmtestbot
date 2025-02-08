@@ -10,11 +10,12 @@ from states.admin import AdminStates
 
 
 async def add_document_func(message: types.Message, test_name: str):
+    await asyncio.sleep(1)
     await pdb.add_file(test_name, message.document.file_id)
     await message.reply(text="Fayl qabul qilindi!")
 
 
-@dp.message_handler(IsBotAdminFilter(), F.text == "Kimyo DTM (PDF)")
+@dp.message_handler(IsBotAdminFilter(), F.text == "Kimyo DTM (PDF)", state="*")
 async def handle_add_kimyo_dtm(message: types.Message, state: FSMContext):
     await state.finish()
     await message.answer(
@@ -27,7 +28,8 @@ async def handle_add_kimyo_dtm(message: types.Message, state: FSMContext):
 async def get_pdf_dtm_chemistry(message: types.Message):
     await add_document_func(message, "dtm_chemistry")
 
-@dp.message_handler(IsBotAdminFilter(), F.text == "Kimyo (Sertifikat)")
+
+@dp.message_handler(IsBotAdminFilter(), F.text == "Kimyo (Sertifikat)", state="*")
 async def handle_add_kimyo_sert(message: types.Message, state: FSMContext):
     await state.finish()
     await message.answer(
@@ -38,11 +40,10 @@ async def handle_add_kimyo_sert(message: types.Message, state: FSMContext):
 
 @dp.message_handler(state=AdminStates.ADD_PDF_SERT_CHEMISTRY, content_types=types.ContentTypes.DOCUMENT)
 async def get_pdf_sert_chemistry(message: types.Message):
-    await pdb.add_file("sert_chemistry", message.document.file_id)
-    await message.reply(text="Fayl qabul qilindi!")
+    await add_document_func(message, "sert_chemistry")
 
 
-@dp.message_handler(IsBotAdminFilter(), F.text == "Biologiya DTM (PDF)")
+@dp.message_handler(IsBotAdminFilter(), F.text == "Biologiya DTM (PDF)", state="*")
 async def handle_add_biology_dtm(message: types.Message, state: FSMContext):
     await state.finish()
     await message.answer(
@@ -53,12 +54,10 @@ async def handle_add_biology_dtm(message: types.Message, state: FSMContext):
 
 @dp.message_handler(state=AdminStates.ADD_PDF_DTM_BIOLOGY)
 async def get_pdf_dtm_biology(message: types.Message):
-    await asyncio.sleep(1)
-    await pdb.add_file("dtm_biology", message.document.file_id)
-    await message.reply(text="Fayl qabul qilindi!")
+    await add_document_func(message, "dtm_biology")
 
 
-@dp.message_handler(IsBotAdminFilter(), F.text == "Biologiya (Sertifikat)")
+@dp.message_handler(IsBotAdminFilter(), F.text == "Biologiya (Sertifikat)", state="*")
 async def handle_add_biology_sert(message: types.Message, state: FSMContext):
     await state.finish()
     await message.answer(
@@ -69,6 +68,4 @@ async def handle_add_biology_sert(message: types.Message, state: FSMContext):
 
 @dp.message_handler(state=AdminStates.ADD_PDF_SERT_BIOLOGY)
 async def get_pdf_sert_biology(message: types.Message):
-    await asyncio.sleep(1)
-    await pdb.add_file("sert_biology", message.document.file_id)
-    await message.reply(text="Fayl qabul qilindi!")
+    await add_document_func(message, "sert_biology")

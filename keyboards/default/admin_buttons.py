@@ -12,7 +12,7 @@ def create_keyboard(buttons, row_width=1):
 admin_main_buttons = create_keyboard([
     ["Test qo'shish (PDF)", "Test qo'shish (IMAGE)"],
     ["Foydalanuvchilar soni"],
-    ["Oddiy xabar yuborish", "Media group yuborish"],
+    ["Oddiy post yuborish", "Media group yuborish"],
     ["Bosh sahifa"]
 ])
 

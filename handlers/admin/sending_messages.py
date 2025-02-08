@@ -7,26 +7,12 @@ from magic_filter import F
 from filters.admins import IsBotAdminFilter
 from handlers.admin.admin_page_main import WARNING_TEXT
 
-from keyboards.default.admin_buttons import bot_main_buttons
 from loader import dp, db
 from states.admin import AdminStates
 from utils.db_functions import send_message_to_users, send_media_group_to_users
 
 
-@dp.message_handler(IsBotAdminFilter(), F.text == "Bot")
-async def bot_main_page(message: types.Message, state: FSMContext):
-    await state.finish()
-    await message.answer("Bot bosh sahifasi!", reply_markup=bot_main_buttons)
-
-
-@dp.message_handler(IsBotAdminFilter(), F.text == "Foydalanuvchilar soni")
-async def user_count(message: types.Message, state: FSMContext):
-    await state.finish()
-    count = await db.count_users()
-    await message.answer(f"Foydalanuvchilar soni: {count}")
-
-
-@dp.message_handler(IsBotAdminFilter(), F.text == "✅ Oddiy post yuborish")
+@dp.message_handler(IsBotAdminFilter(), F.text == "Oddiy post yuborish")
 async def send_to_bot_users(message: types.Message, state: FSMContext):
     await state.finish()
     send_status = await db.get_send_status()

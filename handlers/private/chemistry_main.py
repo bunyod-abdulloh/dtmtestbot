@@ -1,8 +1,18 @@
+import asyncio
+
 from aiogram import types
 from magic_filter import F
 
 from keyboards.default.user_dbuttons import chemistry_dtm_dbuttons, chemistry_sert_dbuttons
-from loader import dp
+from loader import dp, pdb
+
+
+async def send_doc_to_user(message: types.Message, test_name: str):
+    all_tests = await pdb.select_files_by_name(test_name)
+    for index, test in enumerate(all_tests):
+        if index == 29:
+            await asyncio.sleep(5)
+        await message.answer_document(document=test['file_id'])
 
 
 @dp.message_handler(F.text == "📚 Kimyo DTM Testlar")
@@ -12,18 +22,15 @@ async def handle_chemistry_dtm(message: types.Message):
     )
 
 
-# Testlar hammasi lotinda | Chemistry dtm
-@dp.message_handler(F.text == "📌 Testlar varianti (PDF)")
+@dp.message_handler(F.text == "📌 Yuklab olish PDF (DTM | Kimyo)")
 async def handle_chemistry_dtm_pdf(message: types.Message):
-    await message.answer(
-        text="Testlar hozircha joylanmadi!"
-    )
+    await send_doc_to_user(message, "dtm_chemistry")
 
 
-@dp.message_handler(F.text == "▶️ Test ishlash (Kimyo DTM)")
+@dp.message_handler(F.text == "▶️ Test ishlash (DTM | Kimyo)")
 async def handle_chemistry_dtm_play(message: types.Message):
     await message.answer(
-        text="Testlar hozircha joylanmadi!", reply_markup=chemistry_sert_dbuttons
+        text="Testlar hozircha joylanmadi!"
     )
 
 
@@ -34,15 +41,12 @@ async def handle_chemistry_sert(message: types.Message):
     )
 
 
-# Testlar e kirillda | Chemistry sertifikat
-@dp.message_handler(F.text == "📌 Tеstlar varianti (PDF)")
+@dp.message_handler(F.text == "📌 Yuklab olish PDF (Sertifikat | Kimyo)")
 async def handle_chemistry_sert_pdf(message: types.Message):
-    await message.answer(
-        text="Testlar hozircha joylanmadi!"
-    )
+    await send_doc_to_user(message, "sert_chemistry")
 
 
-@dp.message_handler(F.text == "▶️ Test ishlash (Kimyo Milliy Sertifikat)")
+@dp.message_handler(F.text == "▶️ Test ishlash (Sertifikat | Kimyo)")
 async def handle_chemistry_sert_play(message: types.Message):
     await message.answer(
         text="Testlar hozircha joylanmadi!"

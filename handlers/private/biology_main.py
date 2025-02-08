@@ -5,25 +5,24 @@ from keyboards.default.user_dbuttons import biology_dtm_dbuttons, biology_sert_d
 from loader import dp
 
 
-@dp.message_handler(F.text == "📚 Kimyo DTM Testlar")
+@dp.message_handler(F.text == "📚 Biologiya DTM Testlar")
 async def handle_biology_dtm(message: types.Message):
     await message.answer(
         text=message.text, reply_markup=biology_dtm_dbuttons
     )
 
 
-# Testlar e kirill a kirillda | Chemistry dtm
-@dp.message_handler(F.text == "📌 Tеstlаr varianti (PDF)")
+@dp.message_handler(F.text == "📌 Yuklab olish PDF (DTM | Biologiya)")
 async def handle_biology_dtm_pdf(message: types.Message):
     await message.answer(
         text="Testlar hozircha joylanmadi!"
     )
 
 
-@dp.message_handler(F.text == "▶️ Test ishlash (Biologiya DTM)")
+@dp.message_handler(F.text == "▶️ Test ishlash (DTM | Biologiya)")
 async def handle_biology_dtm_play(message: types.Message):
     await message.answer(
-        text="Testlar hozircha joylanmadi!", reply_markup=biology_sert_dbuttons
+        text="Testlar hozircha joylanmadi!"
     )
 
 
@@ -34,15 +33,14 @@ async def handle_biology_sert(message: types.Message):
     )
 
 
-# Testlar e lotin a kirillda | Chemistry sertifikat
-@dp.message_handler(F.text == "📌 Tеstlar varianti (PDF)")
+@dp.message_handler(F.text == "📌 Yuklab olish PDF (Sertifikat | Biologiya)")
 async def handle_biology_sert_pdf(message: types.Message):
     await message.answer(
         text="Testlar hozircha joylanmadi!"
     )
 
 
-@dp.message_handler(F.text == "▶️ Test ishlash (Biologiya Milliy Sertifikat)")
+@dp.message_handler(F.text == "▶️ Test ishlash (Sertifikat | Biologiya)")
 async def handle_biology_sert_play(message: types.Message):
     await message.answer(
         text="Testlar hozircha joylanmadi!"

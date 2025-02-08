@@ -5,9 +5,14 @@ from magic_filter import F
 
 from filters.admins import IsBotAdminFilter
 from keyboards.default.admin_buttons import admin_main_buttons, add_pdf_buttons
-from loader import dp
+from loader import dp, db
 
-WARNING_TEXT = "Xabar"
+# Xabarlar va ogohlantirish matni
+WARNING_TEXT = (
+    "Xabar yuborishdan oldin postingizni yaxshilab tekshirib oling!\n\n"
+    "Imkoni bo'lsa postingizni oldin tayyorlab olib keyin yuboring.\n\n"
+    "Xabaringizni kiriting:"
+)
 
 
 @dp.message_handler(IsBotAdminFilter(), Command(commands="admin"))
@@ -19,6 +24,13 @@ async def admin_main_page(message: types.Message):
 async def back_to_main_page(message: types.Message, state: FSMContext):
     await state.finish()
     await message.answer(text="Admin bosh sahifasi!", reply_markup=admin_main_buttons)
+
+
+@dp.message_handler(IsBotAdminFilter(), F.text == "Foydalanuvchilar soni")
+async def show_user_count(message: types.Message, state: FSMContext):
+    await state.finish()
+    user_count = await db.count_users()
+    await message.answer(f"Foydalanuvchilar soni: {user_count}")
 
 
 @dp.message_handler(IsBotAdminFilter(), F.text == "Test qo'shish (PDF)")

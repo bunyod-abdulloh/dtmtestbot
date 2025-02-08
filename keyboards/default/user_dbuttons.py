@@ -2,33 +2,30 @@ from keyboards.default.admin_buttons import create_keyboard
 
 user_main_dbuttons = create_keyboard(
     [['📚 Kimyo DTM Testlar', '📚 Kimyo Milliy Sertifikat Testlar'],
-     ['📚 Biologiya DTM Testlar', '📚 Biologiya Milliy Sertifikat Testlar']]
+     ['📚 Biologiya DTM Testlar', '📚 Biologiya Milliy Sertifikat Testlar'],
+     ['📲 Adminga murojaat']]
 )
 
-# Testlar hammasi lotinda
 chemistry_dtm_dbuttons = create_keyboard([
-    ['📌 Testlar varianti (PDF)'],
-    ['▶️ Test ishlash (Kimyo DTM)'],
+    ['📌 Yuklab olish PDF (DTM | Kimyo)'],
+    ['▶️ Test ishlash (DTM | Kimyo)'],
     ['🔙 Ortga']
 ])
 
-# Testlar e kirillda
 chemistry_sert_dbuttons = create_keyboard([
-    ['📌 Tеstlar varianti (PDF)'],
-    ['▶️ Test ishlash (Kimyo Milliy Sertifikat)'],
+    ['📌 Yuklab olish PDF (Sertifikat | Kimyo)'],
+    ['▶️ Test ishlash (Sertifikat | Kimyo)'],
     ['🔙 Ortga']
 ])
 
-# Testlar e kirill a kirillda
 biology_dtm_dbuttons = create_keyboard([
-    ['📌 Tеstlаr varianti (PDF)'],
-    ['▶️ Test ishlash (Biologiya DTM)'],
+    ['📌 Yuklab olish PDF (DTM | Biologiya)'],
+    ['▶️ Test ishlash (DTM | Biologiya)'],
     ['🔙 Ortga']
 ])
 
-# Testlar e lotin a kirillda
 biology_sert_dbuttons = create_keyboard([
-    ['📌 Tеstlar varianti (PDF)'],
-    ['▶️ Test ishlash (Biologiya DTM)'],
+    ['📌 Yuklab olish PDF (Sertifikat | Biologiya)'],
+    ['▶️ Test ishlash (Sertifikat | Biologiya)'],
     ['🔙 Ortga']
 ])
