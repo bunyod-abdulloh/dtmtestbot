@@ -18,7 +18,7 @@ admin_main_buttons = create_keyboard([
 
 add_pdf_buttons = create_keyboard([
     ["Kimyo DTM (PDF)", "Kimyo (Sertifikat)"],
-    ["Biologiya DTN (PDF)", "Biologiya (Sertifikat)"],
+    ["Biologiya DTM (PDF)", "Biologiya (Sertifikat)"],
     ["◀️ Ortga"]
 ])
 
