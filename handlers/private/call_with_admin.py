@@ -22,7 +22,7 @@ async def call_with_admin_callback(message: types.Message, state: FSMContext):
 async def call_with_admin_two(message: types.Message, state: FSMContext):
     await state.finish()
     await bot.send_message(
-        chat_id=ADMINS[0], text=f"Savol qabul qilindi!\n\n"
+        chat_id=ADMINS[1], text=f"Savol qabul qilindi!\n\n"
                                 f"Username: @{message.from_user.username}\n\n"
                                 f"Savol:\n\n{message.text}", reply_markup=send_message_to_admin(
             message.from_user.id
