@@ -5,7 +5,7 @@ from aiogram.dispatcher import FSMContext
 from magic_filter import F
 
 from filters.admins import IsBotAdminFilter
-from handlers.admin.group_main import WARNING_TEXT
+from handlers.admin.admin_page_main import WARNING_TEXT
 
 from keyboards.default.admin_buttons import bot_main_buttons
 from loader import dp, db

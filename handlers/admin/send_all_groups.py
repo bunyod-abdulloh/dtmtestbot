@@ -8,7 +8,7 @@ from aiogram.utils.exceptions import BotKicked
 from magic_filter import F
 
 from filters.admins import IsBotAdminFilter
-from handlers.admin.group_main import WARNING_TEXT
+from handlers.admin.admin_page_main import WARNING_TEXT
 from loader import dp, db, bot
 from states.admin import AdminStates
 
