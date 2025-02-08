@@ -49,7 +49,7 @@ async def handle_add_biology_dtm(message: types.Message, state: FSMContext):
     await AdminStates.ADD_PDF_DTM_BIOLOGY.set()
 
 
-@dp.message_handler(state=AdminStates.ADD_PDF_DTM_BIOLOGY)
+@dp.message_handler(state=AdminStates.ADD_PDF_DTM_BIOLOGY, content_types=types.ContentTypes.DOCUMENT)
 async def get_pdf_dtm_biology(message: types.Message):
     await add_document_func(message, "dtm_biology")
 
@@ -63,6 +63,6 @@ async def handle_add_biology_sert(message: types.Message, state: FSMContext):
     await AdminStates.ADD_PDF_SERT_BIOLOGY.set()
 
 
-@dp.message_handler(state=AdminStates.ADD_PDF_SERT_BIOLOGY)
+@dp.message_handler(state=AdminStates.ADD_PDF_SERT_BIOLOGY, content_types=types.ContentTypes.DOCUMENT)
 async def get_pdf_sert_biology(message: types.Message):
     await add_document_func(message, "sert_biology")

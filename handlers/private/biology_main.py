@@ -1,6 +1,7 @@
 from aiogram import types
 from magic_filter import F
 
+from handlers.private.chemistry_main import send_doc_to_user
 from keyboards.default.user_dbuttons import biology_dtm_dbuttons, biology_sert_dbuttons
 from loader import dp
 
@@ -14,9 +15,7 @@ async def handle_biology_dtm(message: types.Message):
 
 @dp.message_handler(F.text == "📌 Yuklab olish PDF (DTM | Biologiya)")
 async def handle_biology_dtm_pdf(message: types.Message):
-    await message.answer(
-        text="Testlar hozircha joylanmadi!"
-    )
+    await send_doc_to_user(message, "dtm_biology")
 
 
 @dp.message_handler(F.text == "▶️ Test ishlash (DTM | Biologiya)")
@@ -35,10 +34,7 @@ async def handle_biology_sert(message: types.Message):
 
 @dp.message_handler(F.text == "📌 Yuklab olish PDF (Sertifikat | Biologiya)")
 async def handle_biology_sert_pdf(message: types.Message):
-    await message.answer(
-        text="Testlar hozircha joylanmadi!"
-    )
-
+    await send_doc_to_user(message, "sert_biology")
 
 @dp.message_handler(F.text == "▶️ Test ishlash (Sertifikat | Biologiya)")
 async def handle_biology_sert_play(message: types.Message):
