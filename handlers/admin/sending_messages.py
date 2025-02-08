@@ -34,8 +34,9 @@ async def send_to_bot_users_two(message: types.Message, state: FSMContext):
     )
 
 
-@dp.message_handler(IsBotAdminFilter(), F.text == "🎞 Mediagroup post yuborish", state="*")
+@dp.message_handler(IsBotAdminFilter(), F.text == "Media group yuborish", state="*")
 async def send_media_to_bot(message: types.Message, state: FSMContext):
+    print(message.text)
     await state.finish()
     send_status = await db.get_send_status()
     if send_status is True:
