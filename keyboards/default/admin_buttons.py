@@ -11,19 +11,25 @@ def create_keyboard(buttons, row_width=1):
 # Admin asosiy tugmalari
 admin_main_buttons = create_keyboard([
     ["Test qo'shish (PDF)", "Test qo'shish (IMAGE)"],
+    ["Test o'chirish (PDF)", "Test o'chirish (IMAGE)"],
     ["Foydalanuvchilar soni"],
     ["Oddiy post yuborish", "Media group yuborish"],
     ["Bosh sahifa"]
 ])
 
-add_pdf_buttons = create_keyboard([
+chemistry_biology_buttons = create_keyboard([
+    ["Kimyo bo'limi", "Biologiya bo'limi"],
+    ["Ortga"]
+])
+
+add_chemistry_buttons = create_keyboard([
     ["Kimyo DTM (PDF)", "Kimyo (Sertifikat)"],
-    ["Biologiya DTM (PDF)", "Biologiya (Sertifikat)"],
+    ["Kimyo DTM (IMAGE)", "Kimyo (Sertifikat/IMAGE)"],
     ["◀️ Ortga"]
 ])
 
-add_image_buttons = create_keyboard([
-    ["Kimyo DTM (IMAGE)", "Kimyo (Sertifikat/IMAGE)"],
+add_biology_buttons = create_keyboard([
+    ["Biologiya DTM (PDF)", "Biologiya (Sertifikat)"],
     ["Biologiya DTN (IMAGE)", "Biologiya (Sertifikat/IMAGE)"],
     ["◀️ Ortga"]
 ])

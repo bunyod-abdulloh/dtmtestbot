@@ -3,6 +3,7 @@ from aiogram.dispatcher import FSMContext
 from magic_filter import F
 
 from filters import IsBotAdminFilter
+from keyboards.default.admin_buttons import add_chemistry_buttons, add_biology_buttons
 from loader import dp, pdb
 from states.admin import AdminStates
 
@@ -10,6 +11,22 @@ from states.admin import AdminStates
 async def add_document_func(message: types.Message, test_name: str):
     await pdb.add_file(test_name, message.document.file_id)
     await message.reply(text="Fayl qabul qilindi!")
+
+
+@dp.message_handler(IsBotAdminFilter(), F.text == "Kimyo bo'limi")
+async def handle_chemistry_main(message: types.Message, state: FSMContext):
+    await state.finish()
+    await message.answer(
+        text=message.text, reply_markup=add_chemistry_buttons
+    )
+
+
+@dp.message_handler(IsBotAdminFilter(), F.text == "Biologiya bo'limi")
+async def handle_biology_main(message: types.Message, state: FSMContext):
+    await state.finish()
+    await message.answer(
+        text=message.text, reply_markup=add_biology_buttons
+    )
 
 
 @dp.message_handler(IsBotAdminFilter(), F.text == "Kimyo DTM (PDF)", state="*")
