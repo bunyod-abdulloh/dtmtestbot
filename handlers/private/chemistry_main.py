@@ -9,6 +9,11 @@ from loader import dp, pdb
 
 async def send_doc_to_user(message: types.Message, test_name: str):
     all_tests = await pdb.select_files_by_name(test_name)
+    if not all_tests:
+        await message.answer(
+            text="Testlar hozircha joylanmadi!"
+        )
+        return
     for index, test in enumerate(all_tests):
         if index == 29:
             await asyncio.sleep(5)
