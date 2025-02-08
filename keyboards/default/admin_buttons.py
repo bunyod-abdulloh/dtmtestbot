@@ -10,8 +10,7 @@ def create_keyboard(buttons, row_width=1):
 
 # Admin asosiy tugmalari
 admin_main_buttons = create_keyboard([
-    ["Test qo'shish (PDF)", "Test qo'shish (IMAGE)"],
-    ["Test o'chirish"],
+    ["Test qo'shish", "Test o'chirish"],
     ["Foydalanuvchilar soni"],
     ["Oddiy post yuborish", "Media group yuborish"],
     ["Bosh sahifa"]

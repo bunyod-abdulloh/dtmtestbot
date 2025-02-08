@@ -39,7 +39,7 @@ async def show_user_count(message: types.Message, state: FSMContext):
     await message.answer(f"Foydalanuvchilar soni: {user_count}")
 
 
-@dp.message_handler(IsBotAdminFilter(), F.text == "Test qo'shish (PDF)")
+@dp.message_handler(IsBotAdminFilter(), F.text == "Test qo'shish")
 async def handle_add_pdf(message: types.Message, state: FSMContext):
     await state.finish()
     await message.answer(
